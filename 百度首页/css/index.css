@@ -51,6 +51,79 @@ a {
     text-decoration: none;
     background: #3387fe;
 }
+/* right-bar   侧边导航栏*/
+.right-bar-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 90px;
+    height: 680px;
+    background: rgba(200, 200, 200, 0.5);
+}
+
+.right-bar-wrapper .right-bar .bar-title {
+    margin: 0 auto;
+    width: 70px;
+    height: 60px;
+    color: black;
+    font-size: 1.2em;
+    text-align: center;
+    line-height: 60px;
+    border-bottom: solid 1px #cfcfcf;
+}
+
+.right-bar-wrapper .right-bar .bar-content a {
+    display: block;
+    width: 70px;
+    margin: 0 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    text-decoration: none;
+    border-bottom: solid 1px #cfcfcf;
+}
+
+.right-bar-wrapper .right-bar .bar-content a span {
+    display: block;
+    width: 37px;
+    height: 37px;
+    margin: 10px auto 5px;
+}
+
+.right-bar-wrapper .right-bar .bar-content a:nth-of-type(1) span {
+    width: 36px;
+    background: url("../image/bdbri_icons_0a62ce1.png") 0 0 no-repeat;
+}
+
+.right-bar-wrapper .right-bar .bar-content a:nth-of-type(2) span {
+    width: 40px;
+    background: url("../image/bdbri_icons_0a62ce1.png") -72px 0 no-repeat;
+}
+
+.right-bar-wrapper .right-bar .bar-content a:nth-of-type(3) span {
+    background: url("../image/bdbri_icons_0a62ce1.png") -112px 0 no-repeat;
+}
+
+.right-bar-wrapper .right-bar .bar-content a:nth-of-type(4) span {
+    width: 36px;
+    background: url("../image/bdbri_icons_0a62ce1.png") -36px 0 no-repeat;
+}
+
+.right-bar-wrapper .right-bar .bar-content a:nth-of-type(5) span {
+    background: url("../image/bdbri_icons_0a62ce1.png") -147px 0 no-repeat;
+}
+
+.right-bar-wrapper .right-bar .bar-content a:nth-of-type(6) span {
+    background: url("../image/bdbri_icons_0a62ce1.png") -221px 0 no-repeat;
+}
+
+.right-bar-wrapper .right-bar .bar-content a:nth-of-type(7) span {
+    background: url("../image/bdbri_icons_0a62ce1.png") -183px 0 no-repeat;
+}
+
+.right-bar-wrapper .right-bar p:last-child {
+    margin-top: 10px;
+    text-align: center;
+}
 
 /* logo     开始 */
 .logo {
