@@ -2,15 +2,16 @@
 
 /*#F0F2F5*/
 
-* {
-    border: solid 1px black;
-    box-sizing: border-box;
-}
-
 /*header start*/
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 65px;
     background: #e9ebee;
+    z-index: 999;
+    box-shadow: 0 1px 2px 1px rgba(200,200,200,0.8);
 }
 
 header .header_nav {
@@ -18,17 +19,17 @@ header .header_nav {
     width: 1100px;
     height: 65px;
     margin: 0 auto;
-    line-height: 65px;
 }
 
 header .header_nav h1 {
-    display: inline-block;
     position: absolute;
     left: 0;
+    top: 15px;
 }
 
 header .header_nav nav {
-    display: inline-block;
+    height: 65px;
+    line-height: 65px;
     position: absolute;
     right: 0;
     font-size: 1.25em;
@@ -41,20 +42,31 @@ header .header_nav nav a {
 header .header_nav nav a.selected {
     color: #A7C31E;
 }
+
 /*content start*/
+.contentWrapper {
+    margin-top: 72px;
+}
+
 .contentWrapper>div:nth-child(even) {
     height: 430px;
 }
 
 .contentWrapper>div:nth-child(odd) {
+    position: relative;
     height: 530px;
+    box-sizing: border-box;
+    padding-top: 50px;
+}
+
+div.next-icon {
+    position: absolute;
+    bottom: -23px;
+    left: 50%;
 }
 
 .contentWrapper .first-page {
-
-    position: relative;
-    margin-top: 2px;
-    height: 610px !important;
+    height: 605px !important;
     background: url("../images/01.jpg") center/cover no-repeat;
 }
 
@@ -70,7 +82,6 @@ header .header_nav nav a.selected {
 }
 
 .contentWrapper .first-page .page-title>p {
-    margin-top: 15px;
     color: #ffffff;
     font-size: 18px;
     text-align: right;
@@ -78,16 +89,120 @@ header .header_nav nav a.selected {
 
 .contentWrapper .first-page .page-footer {
     position: absolute;
+    left: 0;
     bottom: 0;
+    color: white;
     width: 100%;
     height: 105px;
-    background: rgba(240, 240, 240, 0.6);
+    padding-top: 40px;
+    box-sizing: border-box;
+    text-align: center;
+    background: rgba(238, 238, 238, 0.4);
+}
+.contentWrapper .first-page .page-footer>div {
+    position: absolute;
+    top: -23px;
+    left: 48%;
 }
 
-.contentWrapper .first-page .page-footer .next-icon {
-    text-align: center;
-    margin-top: -23px;
+/*第三个 窗口*/
+.contentWrapper .third-page>div:first-child {
+    position: relative;
+    width: 1030px;
+    height: 430px;
+    margin: 0 auto;
 }
+
+.contentWrapper .third-page div .page-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 150px 0;
+}
+
+.contentWrapper .third-page div div:last-child {
+    position: absolute;
+    top:0;
+    right: 0;
+    width: 530px;
+    text-align: center;
+    background: url("../images/m3.png") left center no-repeat;
+}
+
+.contentWrapper .third-page div div img {
+
+    -webkit-animation:myRotate 10s linear 0s infinite normal;
+    -o-animation:myRotate 10s linear 0s infinite normal;
+    animation:myRotate 10s linear 0s infinite normal;
+}
+
+@keyframes myRotate {
+    from {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);}
+    to {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);}
+}
+
+.contentWrapper .third-page>div.next-icon {
+    position: absolute;
+    bottom: -23px;
+    left: 50%;
+}
+
+/*!*第五个 窗口*!*/
+
+
+/*!*第七个 窗口*!*/
+.contentWrapper .seventh-page>div:first-child {
+    position: relative;
+    width: 1030px;
+    height: 430px;
+    margin: 0 auto;
+}
+
+.contentWrapper .seventh-page div .page-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 150px 0;
+    box-sizing: border-box;
+}
+
+.contentWrapper .seventh-page div div:last-child {
+    position: absolute;
+    top:0;
+    right: 0;
+    width: 530px;
+    height: 430px;
+    text-align: center;
+    padding-top: 104px;
+    padding-left: 62px;
+    background: url("../images/m7.png") left center no-repeat;
+    box-sizing: border-box;
+}
+
+.contentWrapper .seventh-page div div img {
+
+    transform-origin: 39px 107px;
+    -webkit-animation:myRotate 60s linear 0s infinite normal;
+    -o-animation:myRotate 60s linear 0s infinite normal;
+    animation:myRotate 60s linear 0s infinite normal;
+}
+
+
+/*!*第九个 窗口*!*/
+
+/*!*第十一个 窗口*!*/
+
+/*!**!*/
 
 .contentWrapper .second-page {
     background: url("../images/bg1.jpg") center top/cover fixed no-repeat;
@@ -109,14 +224,17 @@ header .header_nav nav a.selected {
     background: url("../images/bg5.jpg") center top/cover fixed no-repeat;
 }
 
-.contentWrapper .third-page {
-    height: 530px;
-}
-
 
 /*footer start*/
 footer {
-
+    font-size: 1.4em;
+    color: white;
     height: 75px;
-    background: blueviolet;
+    text-align: center;
+    line-height: 75px;
+    background: url("../images/bg.jpg") center/cover no-repeat;
+}
+
+footer span {
+    margin-right: 50px;
 }

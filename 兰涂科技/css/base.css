@@ -2,12 +2,20 @@
 
 body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{
     margin:0;
-    padding:0
+    padding:0;
 }
 body {
+    color: #0080BA;
     font:12px"宋体","Arial Narrow",HELVETICA;
-    background:#fff;
+    /*background:#F0F2F5;*/
     -webkit-text-size-adjust:100%;
+}
+h2 {
+    font-size: 40px;
+}
+p {
+    font-size: 18px;
+    line-height: 35px;
 }
 a{
     color:#000;
@@ -17,19 +25,19 @@ a:hover{
     color:#A7C31E;
 }
 em{
-    font-style:normal
+    font-style:normal;
 }
 li{
-    list-style:none
+    list-style:none;
 }
 img{
     border:0;
-    vertical-align:middle
+    vertical-align:top;
 }
 table{
     border-collapse:collapse;
     border-spacing:0
 }
 p{
-    word-wrap:break-word
+    word-wrap:break-word;
 }
