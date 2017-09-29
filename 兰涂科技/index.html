@@ -65,12 +65,25 @@
         <div class="fifth-page">
             <div>
                 <div class="page-title">
-                    <h2>兰涂移动校园</h2>
-                    <p>国内最有粘性的定制化移动校园</p>
-                    <p>不只是APP，更是新的校园生态系统</p>
+                    <h2>九大应用群</h2>
+                    <p>60多个独具粘性的独立应用</p>
+                    <p>真正离不开的一站式校园服务</p>
                 </div>
                 <div>
-                    <img src="images/ct3_out.png" alt="">
+                    <div id="m5_ul_bg"></div>
+                    <div>
+                        <ul id="m5_ul">
+                            <li class="selected"><span></span> 基础服务</li>
+                            <li><span></span> 迎新系统</li>
+                            <li><span></span> 毕业就业</li>
+                            <li><span></span> 教学服务</li>
+                            <li><span></span> 科研教务</li>
+                            <li><span></span> 智慧物联</li>
+                            <li><span></span> 生活服务</li>
+                            <li><span></span> 家长校友</li>
+                            <li><span></span> 校园社区</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div class="next-icon">
@@ -83,7 +96,7 @@
         <div class="seventh-page">
             <div>
                 <div class="page-title">
-                    <h2>w完善的生态系统</h2>
+                    <h2>完善的生态系统</h2>
                     <p>快速迭代，试错响应，师生参与</p>
                     <p>以互联网方式来做服务软件</p>
                 </div>
@@ -101,12 +114,11 @@
         <div class="ninth-page">
             <div>
                 <div class="page-title">
-                    <h2>兰涂移动校园</h2>
-                    <p>国内最有粘性的定制化移动校园</p>
-                    <p>不只是APP，更是新的校园生态系统</p>
+                    <h2>全平台</h2>
+                    <p>对于重复建设，其实我是拒绝的~</p>
+                    <p>更纯粹的跨平台技术</p>
                 </div>
                 <div>
-                    <img src="images/ct3_out.png" alt="">
                 </div>
             </div>
             <div class="next-icon">
@@ -167,6 +179,51 @@
 
 </body>
 <script>
+
+    var selectedIndex = 0;
+    var setTimer = function () {
+        return setInterval(function () {
+
+            var nextLi = document.querySelector("#m5_ul li.selected+li");
+            if (nextLi == null) {
+                nextLi = document.querySelector("#m5_ul li:first-child");
+                selectedIndex = 0;
+            }else {
+                selectedIndex += 1;
+            }
+
+            var preTag = document.querySelector("#m5_ul li.selected");
+            if(preTag != null) {
+                preTag.classList.remove("selected");
+            }
+
+            nextLi.classList.add("selected");
+            document.getElementById("m5_ul_bg").style.backgroundPosition = "0 " + "-" + selectedIndex * 324 + "px";
+        }, 2000);
+    };
+
+    var timer= setTimer();
+
+    document.querySelectorAll("#m5_ul li").forEach(function (li, index) {
+        li.addEventListener("click", function () {
+            console.log(index);
+            clearInterval(timer);
+            selectedIndex = index;
+            var preTag = document.querySelector("#m5_ul li.selected");
+            if(preTag != null) {
+                preTag.classList.remove("selected");
+            }
+
+            this.classList.add("selected");
+            document.getElementById("m5_ul_bg").style.backgroundPosition = "0 " + "-" + selectedIndex * 324 + "px";
+            timer = setTimer();
+        }, false)
+    });
+
+
+
+
+
 
 </script>
 </html>

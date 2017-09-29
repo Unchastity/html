@@ -7,7 +7,6 @@ body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,s
 body {
     color: #0080BA;
     font:12px"宋体","Arial Narrow",HELVETICA;
-    /*background:#F0F2F5;*/
     -webkit-text-size-adjust:100%;
 }
 h2 {

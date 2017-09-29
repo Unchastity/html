@@ -56,7 +56,8 @@ header .header_nav nav a.selected {
     position: relative;
     height: 530px;
     box-sizing: border-box;
-    padding-top: 50px;
+    /*padding-top: 50px;*/
+    background-color:#F0F2F5;
 }
 
 div.next-icon {
@@ -65,6 +66,7 @@ div.next-icon {
     left: 50%;
 }
 
+/*第一个 页面*/
 .contentWrapper .first-page {
     height: 605px !important;
     background: url("../images/01.jpg") center/cover no-repeat;
@@ -106,6 +108,9 @@ div.next-icon {
 }
 
 /*第三个 窗口*/
+.contentWrapper .third-page {
+    padding-top: 50px;
+}
 .contentWrapper .third-page>div:first-child {
     position: relative;
     width: 1030px;
@@ -158,9 +163,76 @@ div.next-icon {
 }
 
 /*!*第五个 窗口*!*/
+.contentWrapper .fifth-page {
+    padding-top: 100px;
+}
 
+.contentWrapper .fifth-page>div:first-child {
+    position: relative;
+    width: 1030px;
+    height: 340px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.contentWrapper .fifth-page div .page-title {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 150px 0 0;
+    box-sizing: border-box;
+}
+
+.contentWrapper .fifth-page>div>div:last-child {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 580px;
+    height: 340px;
+}
+
+.contentWrapper .fifth-page>div>div:last-child>div:first-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 324px;
+    height: 324px;
+    background: url("../images/m5.png") 0 0 no-repeat;
+}
+
+.contentWrapper .fifth-page>div>div:last-child>div:last-child {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 150px;
+    font-size: 20px;
+}
+.contentWrapper .fifth-page>div>div:last-child>div:last-child li {
+    vertical-align: top;
+    line-height: 37px;
+    cursor: pointer;
+
+    transition: all 0.2s;
+}
+
+.contentWrapper .fifth-page>div>div:last-child>div:last-child li.selected {
+    font-size: 25px;
+}
+
+.contentWrapper .fifth-page>div>div:last-child>div:last-child li span:first-child {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border: 5px solid #A7C31E;
+    border-radius: 50%;
+    margin-right: 20px;
+}
 
 /*!*第七个 窗口*!*/
+.contentWrapper .seventh-page {
+    padding-top: 50px;
+}
 .contentWrapper .seventh-page>div:first-child {
     position: relative;
     width: 1030px;
@@ -172,7 +244,7 @@ div.next-icon {
     position: absolute;
     top: 0;
     left: 0;
-    padding: 150px 0;
+    padding: 150px 0 0;
     box-sizing: border-box;
 }
 
@@ -198,11 +270,77 @@ div.next-icon {
 }
 
 
-/*!*第九个 窗口*!*/
+/*第九个 窗口*/
+.contentWrapper .ninth-page {
+    padding-top: 60px;
+}
 
-/*!*第十一个 窗口*!*/
+.contentWrapper .ninth-page>div:first-child {
+    position: relative;
+    width: 1030px;
+    height: 400px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
 
-/*!**!*/
+.contentWrapper .ninth-page div .page-title {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 150px 0 0;
+    box-sizing: border-box;
+}
+
+.contentWrapper .ninth-page div div:last-child {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 400px;
+    height: 400px;
+    text-align: center;
+    background: url("../images/m9.png") left center no-repeat;
+    box-sizing: border-box;
+
+    -webkit-animation:myRotate 20s linear 0s infinite normal;
+    -o-animation:myRotate 20s linear 0s infinite normal;
+    animation:myRotate 20s linear 0s infinite normal;
+}
+
+/*第十一个 窗口*/
+.contentWrapper .eleventh-page {
+    padding-top: 85px;
+}
+
+.contentWrapper .eleventh-page>div:first-child {
+    position: relative;
+    width: 1030px;
+    height: 400px;
+    margin: 0 auto;
+}
+
+.contentWrapper .eleventh-page div .page-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 130px 0 0;
+}
+
+.contentWrapper .eleventh-page div .page-title ul li {
+    display: inline-block;
+    font-size: 18px;
+    text-align: center;
+    line-height: 40px;
+    margin-right: 20px;
+}
+
+.contentWrapper .eleventh-page>div>div:last-child {
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: center;
+}
+
+/**/
 
 .contentWrapper .second-page {
     background: url("../images/bg1.jpg") center top/cover fixed no-repeat;
