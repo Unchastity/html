@@ -30,7 +30,7 @@
         <div class="tab_content">
             <div class="user-name">
                 <div>账号：</div>
-                <input type="text" placeholder="6-18位数字字母组合">
+                <input type="text" placeholder="6-18位数字字母组合" required>
                 <select title="mail-type">
                     <option value="@163.com">@163.com</option>
                     <option value="@126.com">@126.com</option>
@@ -39,20 +39,23 @@
             </div>
             <div class="password">
                 <div>密码：</div>
-                <input type="password" placeholder="6-18位密码，区分大小写">
+                <input type="password" placeholder="6-18位密码，区分大小写" required>
             </div>
             <div class="check-password">
                 <div>确认密码：</div>
-                <input type="text" placeholder="再次输入密码">
+                <input type="password" placeholder="再次输入密码" required>
 
             </div>
             <div class="vcode">
                 <div>验证码：</div>
                 <div>>>>请依次点击 "仗 " "陶 " "药 "完成验证>>></div>
+                <div class="vcode-img">
+                    <img src="1507037353938_1709995978" alt="">
+                </div>
             </div>
             <div class="tel">
                 <div>手机号：</div>
-                <input type="text" placeholder="11位手机号">
+                <input type="text" placeholder="11位手机号" required>
             </div>
             <div class="tel-change">
                 <div></div>
@@ -63,7 +66,7 @@
             </div>
             <div class="msg-code">
                 <div>短信验证码：</div>
-                <input type="text" placeholder="输入短信验证码">
+                <input type="text" placeholder="输入短信验证码" required>
                 <a href="#">获取验证码</a>
             </div>
             <div class="reg-btn">

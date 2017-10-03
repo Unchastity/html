@@ -98,7 +98,7 @@ header>div>span>a:hover {
     height: 45px;
 }
 
-.content .tab_content>div>div:last-child {
+.content .tab_content>div>div:nth-child(2) {
     float: left;
     width: 325px;
     height: 45px;
@@ -147,7 +147,7 @@ header>div>span>a:hover {
     margin-top: 15px;
 }
 
-.content .tab_content .vcode>div:last-child {
+.content .tab_content .vcode>div:nth-child(2) {
     height: 35px;
     text-align: center;
     line-height: 35px;
@@ -155,10 +155,24 @@ header>div>span>a:hover {
     border-radius: 17px;
 }
 
-.content .tab_content .vcode>div:last-child{
+.content .tab_content .vcode>div:nth-child(2){
     height: 35px;
     font-size: 13px;
     border-radius: 17px;
+}
+
+.content .tab_content .vcode .vcode-img {
+    position: relative;
+    top: -105px;
+    left: -327px;
+    display: none;
+}
+
+.content .tab_content .vcode .vcode-img img {
+    border-radius: 10px;
+}
+.content .tab_content .vcode>div:nth-child(2):hover+.vcode-img {
+    display: block;
 }
 
 .content .tab_content .tel {
@@ -227,14 +241,20 @@ header>div>span>a:hover {
 }
 
 .content .ad {
-    width: 900px;
     margin: 65px auto 0;
+    text-align: center;
 }
 
 .content .ad image {
     width: 900px;
 }
-
+.content .ad a{
+    position: relative;
+    top: -140px;
+    display: inline-block;
+    width: 900px;
+    height: 140px;
+}
 /*footer 开始*/
 footer {
     width: 100%;
