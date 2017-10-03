@@ -70,6 +70,7 @@ header>div>span>a:hover {
 }
 
 .content .nav_tab>a {
+    position: relative;
     float: right;
     box-sizing: border-box;
     width: 50%;
@@ -79,6 +80,21 @@ header>div>span>a:hover {
     font-size: 17px;
     border: solid 1px #cccccc;
     border-left: none;
+}
+
+.content .nav_tab>a>p {
+    position: absolute;
+    top: 2px;
+    right: 10px;
+    color: white;
+    width: 27px;
+    height: 13px;
+    line-height: 13px;
+    font-size: 9px;
+    border-radius: 5px;
+    display: inline-block;
+    background-color: red;
+
 }
 
 .content .tab_content {
