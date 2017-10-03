@@ -91,7 +91,13 @@ header>div>span>a:hover {
     font-size: 17px;
     box-sizing: border-box;
     text-indent: 1em;
+    /*outline: solid 1px #3387fe;*/
 }
+
+.content .tab_content input[type="text"]:focus, input[type="password"]:focus, input[type="tel"]:focus {
+    border: solid 1px #3387fe;
+}
+
 
 .content .tab_content>div {
     width: 100%;
