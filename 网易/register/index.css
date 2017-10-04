@@ -187,12 +187,18 @@ header>div>span>a:hover {
     position: relative;
     top: -105px;
     left: -327px;
+    height: 105px;
     display: none;
+}
+
+.content .tab_content .vcode .vcode-img:hover {
+    display: block;
 }
 
 .content .tab_content .vcode .vcode-img img {
     border-radius: 10px;
 }
+
 .content .tab_content .vcode>div:nth-child(2):hover+.vcode-img {
     display: block;
 }
