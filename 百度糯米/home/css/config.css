@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+/*arrow-down*/
+a:hover>.arrow-down {
+    transform: rotate(180deg);
+}
+
+.arrow-down {
+    display: inline-block;
+    width: 9px;
+    height: 5px;
+    background: url("../images/arrow-down_3d94809.png") 0 0 no-repeat;
+    transition: 0.3s;
+}
+
+/*sep line*/
+.sep-line {
+    position: absolute;
+    top: 12px;
+    right: 0;
+    width: 1px;
+    height: 12px;
+    background-color: #dfdfdf;
+}

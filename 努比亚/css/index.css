@@ -1,0 +1,346 @@
+@charset "UTF-8";
+
+/* header start */
+header {
+    width: 100%;
+    height: 65px;
+    background-color: #282828;
+}
+
+header .container {
+    width: 1170px;
+    height: 65px;
+    margin: 0 auto;
+}
+
+header .container h1 {
+    float: left;
+}
+
+header .container a {
+    color: white;
+}
+
+header .container h1 a {
+    display: inline-block;
+    width: 185px;
+    height: 60px;
+    padding: 5px 15px;
+    box-sizing: border-box;
+}
+
+header .container h1 a img {
+    width: 140px;
+}
+
+header .container .nav-user {
+    float: right;
+    width: 170px;
+    height: 65px;
+}
+
+header .container .nav-user li {
+    float: left;
+    text-align: center;
+    line-height: 65px;
+}
+
+header .container .nav-user li:first-of-type {
+    width: 50px;
+    height: 65px;
+    color: white;
+    transition: opacity 0.3s;
+}
+
+header .container .nav-user li:first-of-type:hover {
+    opacity: 0.7;
+}
+
+header .container .nav-user li:last-of-type {
+    width: 120px;
+    height: 65px;
+    color: white;
+    text-align: center;
+    background-color: #f25c4a;
+}
+
+header .container .nav-user li:last-of-type:hover {
+    background-color: #ee4834;
+}
+
+header .container .nav-bar {
+    float: right;
+    width: 690px;
+    margin-right: 60px;
+}
+
+header .container .nav-bar li {
+    float: left;
+    color: white;
+    padding: 0 25px;
+    line-height: 65px;
+
+    transition: opacity 0.3s;
+}
+
+header .container .nav-bar li:hover {
+    opacity: 0.7;
+}
+
+/* carousel start */
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 560px;
+    overflow: hidden;
+}
+
+.carousel ol {
+    position: absolute;
+    left: 50%;
+    margin-left: -64px;
+    bottom: 30px;
+}
+
+.carousel ol li {
+    display: inline-block;
+    width: 40px;
+    height: 2px;
+    background-color: #555555;
+}
+
+.carousel ol li.current_page {
+    background-color: #e95f46;
+}
+
+.carousel>a {
+    display: none;
+    width: 50px;
+    height: 90px;
+    font-size: 30px;
+    text-align: center;
+    line-height: 90px;
+    border-radius: 25px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.carousel a:active {
+    color: black;
+}
+
+.carousel:hover>a {
+    display: block;
+}
+
+.carousel a.left-indi {
+    position: absolute;
+    top: 240px;
+    left: 26px;
+}
+.carousel a.right-indi {
+    position: absolute;
+    top: 240px;
+    right: 26px;
+}
+
+.carousel .carousel-container {
+    width: 100%;
+    height: 560px;
+    background-color: black;
+    overflow: hidden;
+}
+
+.carousel .carousel-container ul {
+    width: 400%;
+    height: 100%;
+
+    animation: change 20s linear infinite normal;
+}
+
+.carousel .carousel-container ul:hover {
+    /*animation: none;*/
+    opacity: 0.5;
+}
+
+@keyframes change {
+    from {
+        margin-left: 0;
+    }
+    to {
+        margin-left: -300%;
+    }
+}
+
+.carousel .carousel-container ul li{
+    float: left;
+    width: 25%;
+    height: 100%;
+}
+
+.carousel .carousel-container ul li:hover {
+    opacity: 1;
+}
+
+.carousel .carousel-container ul li a, .carousel .carousel-container ul li a img{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+/* intro start */
+.intro {
+    width: 100%;
+    height: 300px;
+    margin-top: 3px;
+}
+
+.intro ul li {
+    position: relative;
+    display: inline-block;
+    width: 33.333333333333%;
+    height: 300px;
+    box-sizing: border-box;
+    border: solid 3px #efeeeb;
+    overflow: hidden;
+}
+
+.intro ul li div:first-of-type {
+    width: 100%;
+    height: 100%;
+    background-position: center center;
+    background-size: cover;
+
+    transform: scale(1.1, 1.1);
+    transition: transform 1.6s;
+}
+
+.intro ul li div:first-of-type:hover {
+    transform: none;
+}
+
+.intro ul li:nth-of-type(1) div:first-of-type {
+    background-image: url("../images/intro/15003412434.jpg");
+}
+
+.intro ul li:nth-of-type(2) div:first-of-type {
+    background-image: url("../images/intro/149672763226.jpg");
+}
+
+.intro ul li:nth-of-type(3) div:first-of-type {
+    background-image: url("../images/intro/149752092562.jpg");
+}
+
+.intro ul li div:last-of-type {
+    position: absolute;
+    top: 120px;
+    left: 0;
+    width: 100%;
+}
+
+.intro ul li div:last-of-type h3 {
+    text-align: center;
+    width: 100%;
+    font-size: 25px;
+    color: white;
+}
+
+/* serve start */
+.serve {
+    width: 100%;
+    height: 384px;
+    background-color: #efeeeb;
+}
+
+.serve .serve-container {
+    width: 91.4%;
+    height: 384px;
+    margin: 0 auto;
+    padding-top: 60px;
+    padding-bottom: 80px;
+    box-sizing: border-box;
+}
+
+.serve .serve-container ul {
+    width: 100%;
+    height: 244px;
+}
+
+.serve .serve-container ul li {
+    float: left;
+    width: 16.666666666666666%;
+    height: 100%;
+}
+
+.serve .serve-container ul li dl dt {
+    font-size: 18px;
+    line-height: 40px;
+    color: #666666;
+}
+
+.serve .serve-container ul li dl dd {
+    font-size: 12px;
+    line-height: 23px;
+}
+
+.serve .serve-container ul li dl dd a {
+    color: #c1c2bf;
+}
+
+.serve .serve-container ul li dl dd a:hover {
+    color: red;
+}
+
+/* footer start */
+footer {
+    width: 100%;
+    text-align: center;
+    padding-top: 10px;
+    background-color: #ffffff;
+}
+
+footer div:first-of-type {
+    text-align: center;
+}
+
+footer div:first-of-type span {
+    display: inline-block;
+    width: 33px;
+    height: 33px;
+    background-color: #2b24ad;
+    border-radius: 50%;
+}
+
+footer div:last-of-type {
+    padding: 20px 0;
+    font-size: 11px;
+    line-height: 25px;
+    color: #767676;
+}
+
+footer div:last-of-type p a {
+    color: #767676;
+}
+
+footer div:last-of-type p a:hover {
+    color: red;
+}
+
+footer div:last-of-type p:last-of-type a:last-of-type {
+    display: inline-block;
+    height: 20px;
+    width: 88px;
+    border-radius: 10px;
+    background-color: #e8e7e5;
+}
+
+footer div:last-of-type p:last-of-type a:last-of-type:hover {
+    background-color: #b6b6b6;
+}
+
+footer div:last-of-type p:last-of-type a:last-of-type span {
+    display: inline-block;
+    width: 20px;
+    height: 10px;
+    border-radius: 5px;
+    background: url("../images/extra/spritesheet.png") 0 -692px no-repeat;
+}
