@@ -154,12 +154,34 @@ header .container .nav-bar li:hover {
     width: 400%;
     height: 100%;
 
+    /*轮转图*/
     animation: change 20s linear infinite normal;
+
+    /*3d 旋转*/
+    /*perspective: 500px;*/
+    /*transform-style: preserve-3d;*/
+    /*transform: rotateX(0deg);*/
 }
 
-.carousel .carousel-container ul:hover {
+.carousel .carousel-container ul li{
+    float: left;
+    width: 25%;
+    height: 100%;
+}
+
+.carousel .carousel-container ul li a, .carousel .carousel-container ul li a img{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel .carousel-container ul:hover li{
     /*animation: none;*/
     opacity: 0.5;
+}
+
+.carousel .carousel-container ul li:hover {
+    opacity: 1;
 }
 
 @keyframes change {
@@ -171,21 +193,20 @@ header .container .nav-bar li:hover {
     }
 }
 
-.carousel .carousel-container ul li{
-    float: left;
-    width: 25%;
-    height: 100%;
+/*3d 旋转
+.carousel .carousel-container ul li:nth-of-type(1) {
+
 }
 
-.carousel .carousel-container ul li:hover {
-    opacity: 1;
+.carousel .carousel-container ul li:nth-of-type(2) {
+    transform: translateX(50%);
 }
 
-.carousel .carousel-container ul li a, .carousel .carousel-container ul li a img{
-    display: inline-block;
-    width: 100%;
-    height: 100%;
+.carousel .carousel-container ul li:nth-of-type(3) {
+    transform: translateX(-50%);
 }
+*/
+
 
 /* intro start */
 .intro {
