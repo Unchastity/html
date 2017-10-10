@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>六棱柱</title>
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: url("resource/timg.jpeg") 0 0/cover no-repeat;
+            overflow: hidden;
+        }
+
+        div {
+            position: absolute;
+            left: 300px;
+            bottom: 150px;
+        }
+
+        div ul {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            /*background-color: red;*/
+            list-style: none;
+
+            /*perspective: 500px;*/
+            transform-style: preserve-3d;
+            transform: rotateX(-15deg);
+            animation: sport 20s linear 0s infinite normal;
+        }
+
+        @keyframes sport {
+            from{
+                transform: rotateX(-15deg) rotateY(0deg);
+            }
+
+            to{
+                transform: rotateX(-15deg) rotateY(-360deg);
+            }
+        }
+
+        div ul li {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            font-size: 60px;
+            text-align: center;
+            line-height: 200px;
+            background-color: black;
+        }
+
+        div ul:hover {
+            animation-play-state: paused;
+        }
+
+        div ul:hover li img{
+            opacity: 0.5;
+        }
+
+        div ul li:hover img {
+            opacity: 1;
+        }
+
+        div ul li:nth-of-type(1) {
+            transform: rotateY(0deg) translateZ(200px);
+        }
+        div ul li:nth-of-type(2) {
+            transform: rotateY(60deg) translateZ(200px);
+        }
+        div ul li:nth-of-type(3) {
+            transform: rotateY(120deg) translateZ(200px);
+        }
+        div ul li:nth-of-type(4) {
+            transform: rotateY(180deg) translateZ(200px);
+        }
+        div ul li:nth-of-type(5) {
+            transform: rotateY(240deg) translateZ(200px);
+        }
+        div ul li:nth-of-type(6) {
+            transform: rotateY(300deg) translateZ(200px);
+        }
+
+        div ul li img {
+            width: 100%;
+            height: 100%;
+            border: 5px solid skyblue;
+            box-sizing: border-box;
+        }
+
+        .heart {
+            position: absolute;
+            left: 5%;
+            bottom: 20%;
+            width: 50px;
+            height: 50px;
+            font-size: 100px;
+            animation: heart 10s linear 0s infinite normal;
+        }
+
+        @keyframes heart {
+            0% {
+                opacity: 1;
+                left: 5%;
+                bottom: 20%;
+            }
+
+            20% {
+                opacity: 0;
+                left: 30%;
+                bottom: 50%;
+            }
+
+            40% {
+                opacity: 1;
+                left: 45%;
+                bottom: 90%;
+            }
+
+            60% {
+                opacity: 0;
+                left: 75%;
+                bottom: 60%;
+            }
+
+            80% {
+                opacity: 1;
+                left: 90%;
+                bottom: 40%;
+            }
+
+            100% {
+                opacity: 0;
+                left: 60%;
+                bottom: -10%;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li><img src="resource/1.jpeg" alt="张信哲"></li>
+            <li><img src="resource/2.jpg" alt="张信哲"></li>
+            <li><img src="resource/3.jpg" alt="张信哲"></li>
+            <li><img src="resource/4.jpg" alt="张信哲"></li>
+            <li><img src="resource/5.jpg" alt="张信哲"></li>
+            <li><img src="resource/6.jpg" alt="张信哲"></li>
+        </ul>
+    </div>
+    <span class="heart">❤️</span>
+    <audio src="resource/lovelikewater.mp3" autoplay loop></audio>
+</body>
+<script>
+
+</script>
+</html>
