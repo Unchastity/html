@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3Dbanner旋转</title>
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div.banner {
+            width: 800px;
+            height: 320px;
+            margin: 200px auto;
+        }
+        div ul {
+            list-style: none;
+            width: 800px;
+            height: 320px;
+            perspective: 1000px;
+            transform-style: preserve-3d;
+            /*border: solid 1px black;*/
+        }
+
+        div ul li {
+            position: relative;
+            float: left;
+            width: 200px;
+            height: 320px;
+            box-sizing: border-box;
+            /*border: solid 1px black;*/
+
+            transition: all 2s;
+            transform-style: preserve-3d;
+            /*transform-origin: ;*/
+        }
+
+        div ul li{
+            transform: rotateX(0deg);
+        }
+
+        div ul li:hover {
+            transform: rotateX(360deg);
+        }
+
+        div ul li div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 320px;
+            box-sizing: border-box;
+            /*border: solid 1px black;*/
+        }
+
+        div ul li div:nth-of-type(1) {
+            top:-320px;
+            transform-origin: bottom;
+            transform: translateZ(160px) rotateX(90deg);
+        }
+
+        div ul li div:nth-of-type(2) {
+            top: 320px;
+            transform-origin: top;
+            transform: translateZ(160px) rotateX(-90deg);
+        }
+
+        div ul li div:nth-of-type(3) {
+            transform: translateZ(160px);
+        }
+
+        div ul li div:nth-of-type(4) {
+            transform: translateZ(-160px) rotateX(180deg);
+        }
+
+        div ul li:nth-of-type(1) div:nth-of-type(1) {
+            background: url("resource/11.jpg") 0 0 no-repeat;
+        }
+        div ul li:nth-of-type(1) div:nth-of-type(2) {
+            background: url("resource/12.jpg") 0 0 no-repeat;
+        }
+        div ul li:nth-of-type(1) div:nth-of-type(3) {
+            background: url("resource/13.jpg") 0 0 no-repeat;
+        }
+        div ul li:nth-of-type(1) div:nth-of-type(4) {
+            background: url("resource/14.jpg") 0 0 no-repeat;
+        }
+
+
+        div ul li:nth-of-type(2) div:nth-of-type(1) {
+            background: url("resource/11.jpg") -200px 0 no-repeat;
+        }
+        div ul li:nth-of-type(2) div:nth-of-type(2) {
+            background: url("resource/12.jpg") -200px 0 no-repeat;
+        }
+        div ul li:nth-of-type(2) div:nth-of-type(3) {
+            background: url("resource/13.jpg") -200px 0 no-repeat;
+        }
+        div ul li:nth-of-type(2) div:nth-of-type(4) {
+            background: url("resource/14.jpg") -200px 0 no-repeat;
+        }
+
+        div ul li:nth-of-type(3) div:nth-of-type(1) {
+            background: url("resource/11.jpg") -400px 0 no-repeat;
+        }
+        div ul li:nth-of-type(3) div:nth-of-type(2) {
+            background: url("resource/12.jpg") -400px 0 no-repeat;
+        }
+        div ul li:nth-of-type(3) div:nth-of-type(3) {
+            background: url("resource/13.jpg") -400px 0 no-repeat;
+        }
+        div ul li:nth-of-type(3) div:nth-of-type(4) {
+            background: url("resource/14.jpg") -400px 0 no-repeat;
+        }
+
+        div ul li:nth-of-type(4) div:nth-of-type(1) {
+            background: url("resource/11.jpg") -600px 0 no-repeat;
+        }
+        div ul li:nth-of-type(4) div:nth-of-type(2) {
+            background: url("resource/12.jpg") -600px 0 no-repeat;
+        }
+        div ul li:nth-of-type(4) div:nth-of-type(3) {
+            background: url("resource/13.jpg") -600px 0 no-repeat;
+        }
+        div ul li:nth-of-type(4) div:nth-of-type(4) {
+            background: url("resource/14.jpg") -600px 0 no-repeat;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div class="banner">
+        <ul>
+            <li>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </li>
+            <li>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </li>
+            <li>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </li>
+            <li>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+
+</script>
+</html>

@@ -7,17 +7,20 @@ body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,s
 }
 
 body {
-    font-family: 'Microsoft Sans Serif';
-    font-size: 14px;
+    font: 14px/1.5em 'Microsoft Sans Serif';
 }
 
 ul,ol {
     list-style: none;
 }
 
-a:link {
+a {
     color: inherit;
     text-decoration: none;
+}
+
+a:hover {
+    color: inherit;
 }
 
 img {
@@ -25,3 +28,8 @@ img {
     vertical-align: top;
 }
 
+input:focus {
+    border: none;
+    outline: none;
+    font-size: inherit;
+}

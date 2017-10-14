@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3D轮播图</title>
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            border: none;
+            vertical-align: top;
+        }
+
+        .banner-container {
+            width: 700px;
+            height: 225px;
+            margin: 100px auto;
+            padding: 20px;
+            border: solid 1px black;
+        }
+
+        .banner-container .banner {
+            width: 700px;
+            height: 225px;
+            border: solid 1px black;
+            padding: 16px 0;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        ul {
+            list-style: none;
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+
+        ul li {
+            position: absolute;
+            width: 500px;
+            height: 192px;
+            line-height: 192px;
+            text-align: center;
+            font-size: 50px;
+            transform: scale(0.8);
+            transition: all 0.8s;
+        }
+
+        ul li:nth-of-type(1) {
+            background: url("images/banner/59daf1c084a8a.jpg") center/cover no-repeat;
+        }
+        ul li:nth-of-type(2) {
+            background: url("images/banner/59d78a82e9711.jpg") center/cover no-repeat;
+        }
+        ul li:nth-of-type(3) {
+            background: url("images/banner/59d8f3f7eb62f.jpg") center/cover no-repeat;
+        }
+        ul li:nth-of-type(4) {
+            background: url("images/banner/59cfab9dae7f1.jpg") center/cover no-repeat;
+        }
+        ul li:nth-of-type(5) {
+            background: url("images/banner/59c876cb19a9a.jpg") center/cover no-repeat;
+        }
+        ul li:nth-of-type(6) {
+            background: url("images/banner/59c8d79b45fb0.jpg") center/cover no-repeat;
+        }
+
+/*
+类名更改后，位置有变化，所以使用过度，移动位置
+
+*/
+        .list1 {
+            left: -50px;
+            z-index: 80;
+        }
+
+        .list2 {
+            left: 100px;
+            z-index: 100;
+            transform: scale(1);
+            transition: all 1s;
+        }
+
+        .list3 {
+            left: 250px;
+            z-index: 90;
+            transition: all 0.5s ease-out;
+        }
+
+        .list4 {
+            left: 500px;
+            transition: all 0.8s ease-in;
+        }
+
+        .list5 {
+            left: 650px;
+
+        }
+
+        .list6 {
+            left: 100px;
+            z-index: 1;
+            transition: all 0.8s ease-in 0.5s;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="banner-container">
+        <div class="banner">
+            <ul id="bannerUL">
+                <li class="list1">
+                    1
+                </li>
+                <li class="list2">
+                    2
+                </li>
+                <li class="list3">
+                    3
+                </li>
+                <li class="list4">
+                    4
+                </li>
+                <li class="list5">
+                    5
+                </li>
+                <li class="list6">
+                    6
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+<script>
+    var styleArr = ["list1", "list2", "list3", "list4", "list5", "list6"];
+    var liArr = Array.prototype.slice.call(document.getElementsByTagName("li"));
+
+    var index = 0;
+
+    document.getElementById("bannerUL").addEventListener('click', function (e) {
+       if (e.target.className === "list3") {
+           nextPic();
+       }
+       if (e.target.className === "list1") {
+           prePic();
+       }
+    });
+
+    function nextPic() {
+        styleArr.unshift(styleArr[5]);
+        styleArr.pop();
+        liArr.forEach(function (t, i) {
+            t.classList = "";
+            t.classList.add(styleArr[i]);
+        })
+    }
+
+    function prePic() {
+        styleArr.push(styleArr[0]);
+        styleArr.shift();
+        liArr.forEach(function (t, i) {
+            t.classList = "";
+            t.classList.add(styleArr[i]);
+        })
+    }
+
+
+</script>
+</html>
