@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖放</title>
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <style>
+
+        .drag {
+            width: 100px;
+            height: 100px;
+            background-color: #2b24ad;
+        }
+
+        .container {
+            width: 500px;
+            height: 300px;
+            margin: 100px auto;
+            border: solid 1px black;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="drag-tag" class="drag" draggable="true"></div>
+
+    <div id="box" class="container">
+        <span></span>
+    </div>
+</body>
+<script>
+
+    var dragTag = document.getElementById("drag-tag");
+    var box = document.getElementById("box");
+    var span = box.getElementsByTagName("span")[0];
+
+    dragTag.ondragstart = function (ev) {
+        console.log("on drag start");
+//        ev.preventDefault();
+        console.dir(ev);
+        ev.dataTransfer.effectAllowed = ["copy", "move", "link", "none"];
+    };
+
+    dragTag.ondrag = function (ev) {
+//        console.log("ond rag");
+//        ev.preventDefault();
+//        console.dir(ev);
+        ev.dataTransfer.dropEffect = "copy";
+    };
+
+    dragTag.ondragend = function (ev) {
+        console.log("on drag end");
+//        ev.preventDefault();
+        console.dir(ev);
+    };
+
+    dragTag.ondrop = function (ev) {
+        console.log("on drop");
+        span.innerHTML = "box on drop";
+//        ev.preventDefault();
+        console.dir(ev);
+    };
+
+    box.ondragenter = function (ev) {
+        console.log("box on drag enter");
+        span.innerHTML = "box on drag enter";
+        ev.preventDefault();
+        console.dir(ev);
+        ev.dataTransfer.dropEffect = "move";
+    };
+
+    box.ondragover = function (ev) {
+//        console.log("box on drag over");
+//        span.innerHTML = "box on drag over";
+        ev.preventDefault();
+//        console.dir(ev);
+    };
+
+    box.ondrop = function (ev) {
+        console.log("box on drop");
+        span.innerHTML = "box on drop";
+        ev.preventDefault();
+        ev.cancelBubble = true;
+        console.dir(ev);
+        return true;
+    };
+
+    box.ondragleave = function (ev) {
+        console.log("box on drag leave");
+        span.innerHTML = "box on drag leave";
+//        ev.preventDefault();
+        console.dir(ev);
+    };
+
+</script>
+</html>

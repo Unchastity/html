@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖动文件</title>
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 500px;
+            height: 400px;
+            margin: 100px auto;
+            border: solid 1px transparent;
+        }
+
+        .container>div>span {
+            color: red;
+        }
+
+        #filesBox {
+            width: 500px;
+            height: 300px;
+            border: solid 1px black;
+        }
+
+        img {
+            width: 100px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="container" class="container">
+        <div id="filesBox">
+
+        </div>
+        <div>
+            共 <span id="files-cnt">0</span> 张
+        </div>
+    </div>
+
+</body>
+<script>
+    var box = document.getElementById("filesBox");
+    var delObj = null;
+    var flag = false;
+
+//    DragEvent.prototype.dataTransfer.dropEffect = "copy";
+
+    box.ondragenter = function (ev) {
+        ev.preventDefault();
+        console.log("on drag enter");
+        console.dir(ev.dataTransfer.files.length);
+    };
+
+    box.ondragover = function (ev) {
+        ev.preventDefault();
+        if (!flag) {
+            flag = true;
+            console.log("on drag over");
+            console.dir(ev.dataTransfer);
+        }
+    };
+
+    box.ondrop = function (ev) {
+        console.log("on drop");
+        ev.preventDefault();
+        console.dir(ev);
+        Array.prototype.slice.call(ev.dataTransfer.files).forEach(function (t, number) {
+            console.log("file index: " + number);
+            var fileReader = new FileReader();
+            fileReader.readAsDataURL(t);
+            fileReader.onload = function (ev) {
+                var img = new Image();
+                img.src = fileReader.result;
+                box.appendChild(img);
+                updateCnt(true);
+            }
+        })
+    };
+
+    box.ondragleave = function (ev) {
+        ev.preventDefault();
+        console.log("on drag leave");
+        console.dir(ev);
+        flag = false;
+
+
+    };
+
+    function updateCnt(isAdd) {
+        var cntSpan = document.getElementById("files-cnt");
+        if (isAdd) {
+            cntSpan.innerHTML = parseInt(cntSpan.innerHTML) + 1;
+        }else {
+            cntSpan.innerHTML = parseInt(cntSpan.innerHTML) - 1;
+        }
+
+
+    }
+
+</script>
+</html>
