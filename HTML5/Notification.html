@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notification</title>
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <style>
+
+    </style>
+</head>
+<body>
+
+</body>
+<script>
+    document.onclick = function () {
+        if(window.Notification) {
+            Notification.requestPermission(function () {
+                console.log(Notification.permission);
+                if (Notification.permission === "granted") {
+                    new Notification("Hi 美女：", {
+                        body: "可以请你看电影吗？",
+                        tag: "first",
+                        renotify: true,
+                        silent: false
+                    });
+                }
+            })
+        }
+    };
+
+</script>
+</html>

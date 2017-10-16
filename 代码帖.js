@@ -127,19 +127,19 @@ var Obj = function () {
     this.id = "";
 };
 
-function Obje() {
-    if (!(this instanceOf Obje)) {
-        return new Obje();
-    }
-//    构造函数代码
-}
+// function Obje() {
+//     if (!(this instanceOf Obje)) {
+//         return new Obje();
+//     }
+// //    构造函数代码
+// }
 
-function Objec() {
-    if (!new.target) {
-        throw new Error("请使用new 命令");
-    }
-//    构造函数代码
-}
+// function Objec() {
+//     if (!new.target) {
+//         throw new Error("请使用new 命令");
+//     }
+// //    构造函数代码
+// }
 
 function _new(/* 构造函数 */ constructor, /* 构造函数参数 */ param1) {
     // 将 arguments 对象转为数组
@@ -187,4 +187,53 @@ var extend = function (to, from) {
             to[property] = from[property];
         }
     }
+}
+
+/*
+某个属性到底是原型链上哪个对象自身的属性
+ */
+function getDefiningObj(obj, prop) {
+    while (obj && !Object.hasOwnProperty.call(obj, prop)) {
+        obj = Object.getPropertyValue(obj);
+    }
+    return obj;
+}
+
+
+/*
+获取对象所有属性，自己的和继承的
+ */
+function getOwnPropertiesNameIgnoreIherit(obj) {
+    var props = {};
+    while (obj) {
+        Object.getOwnPropertyNames(obj).forEach(function (t) {
+            props[t] = true;
+        })
+        obj = Object.getPrototypeOf(obj);
+    }
+    return Object.getOwnPropertyNames(props);
+}
+
+/*
+对象拷贝
+1. 原型对象相同，确保构造函数和继承的属性相同
+2. 对象自身的属性，包括不可枚举的和可枚举的
+ */
+function copyObject(orig) {
+    //相同的原型，这继承的属性相同
+    var copy = Object.create(Object.getPrototypeOf(orig));
+    //拷贝对象自身的属性
+    copyOwnPrepertiesFrom(copy, orig);
+    return copy;
+}
+
+function copyOwnPrepertiesFrom(target, source) {
+    //获取源对象自身的所有属性，包括不可枚举
+    var props = Object.getOwnPropertyNames(source);
+    //遍历属性，获得属性描述对象，在给目标对象设置属性
+    props.forEach(function (t) {
+        var propDesc = Object.getOwnPropertyDescriptor(source, t);
+        Object.defineProperty(target, t, propDesc);
+    })
+    return target;
 }
