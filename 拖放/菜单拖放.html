@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>九宫格布局拖放</title>
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <style>
+        * {  margin: 0;  padding: 0;  }
+
+        body {
+            background-color: #767676;
+        }
+        div {
+            position: relative;
+            border: solid 1px black;
+            margin: 100px auto;
+            width: 490px;
+            height: 320px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /*ul:after {*/
+            /*content: '';*/
+            /*display: block;*/
+            /*clear: both;*/
+        /*}*/
+
+        ul li {
+            float: left;
+            margin: 10px 0 0 10px;
+            transition: transform 0.3s;
+        }
+
+        img {
+            width: 150px;
+            border-radius: 20px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="photo">
+    <ul>
+        <li draggable="true">
+            <img src="resources/images/1.png" alt="">
+        </li>
+        <li draggable="true">
+            <img src="resources/images/2.png" alt="">
+        </li>
+        <li draggable="true">
+            <img src="resources/images/3.png" alt="">
+        </li>
+        <li draggable="true">
+            <img src="resources/images/4.png" alt="">
+        </li>
+        <li draggable="true">
+            <img src="resources/images/5.png" alt="">
+        </li>
+        <li draggable="true">
+            <img src="resources/images/6.png" alt="">
+        </li>
+        <li draggable="true">
+            <img src="resources/images/7.png" alt="">
+        </li>
+        <li draggable="true">
+            <img src="resources/images/8.png" alt="">
+        </li>
+        <li draggable="true">
+            <img src="resources/images/9.png" alt="">
+        </li>
+    </ul>
+</div>
+</body>
+<script>
+    //获取所有页面元素
+    var liArr = Array.prototype.slice.call(document.getElementsByTagName("li"));
+    var photo = document.getElementById("photo");
+
+    //浮动流改为定位流
+    var locationArr = [];//保存现在位置
+    for (var i = 0; i < liArr.length; ++i) {
+        var xOffset = liArr[i].offsetLeft || liArr[i].offsetX -10;
+        var yOffset = liArr[i].offsetTop || liArr[i].offsetY - 10;
+        locationArr.push({'xOffset':xOffset, 'yOffset':yOffset});
+//        console.log(xOffset, yOffset);
+    }
+    //改为定位流
+    for (var j = 0; j < liArr.length; ++j) {
+        liArr[j].style.cssFloat = "none";
+        liArr[j].style.position = "absolute";
+        liArr[j].style.left = locationArr[j].xOffset + "px";
+        liArr[j].style.top = locationArr[j].yOffset + "px";
+        liArr[j].style.margin = 0;
+//        console.log(locationArr[j].xOffset, locationArr[j].yOffset);
+    }
+
+    for (var k = 0; k < liArr.length; ++k) {
+        liArr[k].onmousedown = function (ev) {
+//            console.log(ev, window.event);
+            var self = this;
+            //被点击元素的位置
+            var selfL = self.offsetLeft;
+            var selfT = self.offsetTop;
+            //鼠标点击的位置
+            var ml = ev.clientX;
+            var mt = ev.clientY;
+            //碰撞的元素
+            var selectLi = null;
+            //监听鼠标移动事件
+            document.onmousemove = function (e) {
+                //鼠标的位置
+                var mml = e.clientX;
+                var mmt = e.clientY;
+                //计算鼠标的偏移量
+                var lOffset = mml - ml;
+                var tOffset = mmt - mt;
+//                console.log(lOffset, tOffset);
+                self.style.left = selfL + lOffset + "px";
+                self.style.top  = selfT + tOffset + "px";
+                self.style.zIndex = 10;
+
+                //鼠标坐标转换
+                var xL = mml - photo.offsetLeft;
+                var xT = mmt - photo.offsetTop;
+//                console.log(xL, xT);
+                for(var l = 0; l < liArr.length; ++l) {
+                    var li = liArr[l];
+//                    console.dir(li);
+                    selectLi = null;
+                    if (xL > li.offsetLeft &&
+                        xL < li.offsetLeft + li.clientWidth &&
+                        xT > li.offsetTop &&
+                        xT < li.offsetTop + li.clientHeight &&
+                        li !== self) {
+
+                        selectLi = li;
+//                        console.log(selectLi);
+//                        console.dir(selectLi);
+                        li.style.transform = "scale(1.1)";
+                        return;
+
+                    }else {
+                        li.style.transform = "none";
+                    }
+
+                }
+            };
+
+
+            window.onmouseup = function (ev) {
+                console.log(selectLi);
+                if(selectLi) {
+                    self.style.left = selectLi.offsetLeft + "px";
+                    self.style.top = selectLi.offsetTop + "px";
+                    selectLi.style.left = selfL + "px";
+                    selectLi.style.top = selfT + "px";
+                    selectLi.style.transform = "none";
+                }else {
+                    self.style.left = selfL + "px";
+                    self.style.top = selfT + "px";
+                }
+                self.style.zIndex = 1;
+                document.onmousemove = null;
+            };
+
+            return false;
+        }
+    }
+
+</script>
+</html>
