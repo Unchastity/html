@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>旋转太极图</title>
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .tai-chi {
+            display: flex;
+            align-items: center;
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            border: solid 1px black;
+            border-radius: 50%;
+            background: -webkit-linear-gradient(#000000 50%, #ffffff 50%);
+        }
+
+        .tai-chi::after, .tai-chi::before {
+            content: "";
+            display: block;
+            width: 10%;
+            height: 10%;
+            border-style: solid;
+            border-width: 40px;
+            border-radius: 50%;
+        }
+
+        .tai-chi::before {
+            background-color: black;
+            border-color: white;
+            transform-origin: 0 50%;
+            animation: sport 1s 0s infinite alternate;
+        }
+        @keyframes sport {
+            from {
+                transform: scale(0.5);
+            }
+            to {
+                transform: scale(1.5);
+            }
+        }
+
+        .tai-chi::after {
+            background-color: white;
+            border-color: black;
+            transform-origin: 100% 50%;
+            animation: rev-sport 1s 0s infinite alternate;
+        }
+
+        @keyframes rev-sport {
+            from {
+                transform: scale(1.5);
+            }
+            to {
+                transform: scale(0.5);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tai-chi">
+        <!--<div class="leftB"></div>-->
+        <!--<div class="rightB"></div>-->
+    </div>
+
+</body>
+<script>
+
+</script>
+</html>
