@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>10-20 雨滴</title>
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #skybg {
+            background-color: skyblue;
+
+            display: block;
+            /*vertical-align: middle;*/
+        }
+
+    </style>
+</head>
+<body>
+    <canvas id="skybg"></canvas>
+</body>
+<script>
+
+    var sky = document.getElementById("skybg");
+//    在什么时候，什么条件下，改变什么属性，达到什么效果
+    /*
+     canvas的大小等于浏览器可视窗口
+    */
+//    console.dir(sky);
+    sky.width = window.innerWidth;
+    sky.height = window.innerHeight;
+
+    window.onresize = function (e) {
+//        console.log(this.innerWidth, this.innerHeight);
+//        e = e || window.event;
+        sky.width = this.innerWidth;
+        sky.height = this.innerHeight;
+    };
+
+    /*
+        对象分析
+        1. 雨滴：产生，运动
+        2. 整体背景：雨滴只是一个对象，具有一些属性和行为，
+    */
+
+    /*
+    特效分析
+    1）单个雨滴
+    第一阶段：雨点下落
+        1. 产生雨点
+            a.雨滴是什么形状？类长方形 --> Rect
+            b.雨滴在什么位置产生？在canvas顶端 -->(0, top)
+            c.雨滴什么颜色? --> color
+        2. 雨滴运动下落
+            a.运动？在窗口中的位置（x, y）不断变化 -->(offsetLeft, offsetTop)
+            b.变化？变化的速率，水平方向，垂直方向 -->(hV * t, vV * t)
+        3. 雨滴消失
+            a. 不再绘制雨滴
+            b. 消失的位置(x, y)
+            c. 水平方向offsetleft不变，offsetTop随机数
+            d. 也就是雨滴下落的高度 h，当y = h时，不再绘制雨滴，开始绘制涟漪
+     注：雨滴的属性  位置（x, y）,运动速度(hV, vV), 颜色color
+    第二阶段：雨滴落地，扩大
+        1. 雨滴落地
+            a. 开始绘制涟漪
+            b. 绘制的位置，及半径
+        2. 雨滴扩散
+            a. 半径逐渐扩大 r
+            b. 扩大的速率 rV
+        3. 雨滴涟漪消失
+            a. 在半径增大到一定程度开始，透明度逐渐增大
+     */
+
+    function Drop(sky) {
+        this.sky = sky;
+        this.cxt = this.sky.getContext("2d");
+    }
+
+    Drop.prototype = {
+        init: function () {
+            //雨滴的大小
+            this.width = 3;
+            this.height = 20;
+            //水平方向位置,0到canvas.clientWidth,随机数
+            this.x = randomFrom(0, this.sky.width);
+            //垂直方向，0
+            this.y = -this.height;
+            //运动速度，水平方向，垂直方向
+            this.xV = 0;
+            this.yV = 2;
+            //雨滴下落的高度
+            this.h = randomFrom(0.8 * this.sky.height, 0.9 * this.sky.height);
+            //雨滴颜色
+            this.color = "skyblue";
+
+            //雨滴涟漪的半径,
+            this.r = 0;
+            //雨滴涟漪的最大半径，随机数
+            this.maxR = 50;
+            //雨滴涟漪扩大速度
+            this.rV = 1;
+            //雨滴涟漪的透明度
+            this.a = 1;
+            //雨滴消失的速度
+            this.aV = 0.05;
+
+            this.timer = null;
+        },
+        drawDrop: function () {
+            //方法一
+            //this.cxt.clearRect(0, 0, sky.width, sky.height); // 雨滴较多时，会出现闪烁
+            //方法三   遮罩
+
+//            console.log(0, 0, this.sky.width, this.sky.height);
+            this.cxt.fillStyle = this.color;
+            this.cxt.fillRect(this.x, this.y, this.width, this.height);
+//            console.log(this.x, this.y, this.width, this.height);
+
+        },
+        drawRipple: function () {
+            this.cxt.strokeStyle = this.color;
+            this.cxt.beginPath();
+            this.cxt.arc(this.x, this.h, this.r, 0, 360 / Math.PI * 2, false);
+            this.cxt.closePath();
+            this.cxt.stroke();
+        },
+        sport: function () {
+            this.init();
+            this.timer = setInterval(function () {
+                //若雨滴位置小于最大高度，则绘制雨滴，若大于则绘制涟漪
+                if (this.y < this.h) {
+                    this.drawDrop();
+                    this.update();
+                }else {
+                    if (this.a > 0) {
+                        this.drawRipple();
+                        this.update();
+                    }else {
+                        clearInterval(this.timer);
+                        this.timer = null;
+                    }
+                }
+
+            }.bind(this), 1000/60);
+        },
+        update: function () {
+            if (this.y < this.h) {
+                this.y += this.yV;
+            }else {
+                this.r += this.rV;
+                if (this.r > this.maxR) {
+                    if (this.a > 0) {
+                        this.a -= this.aV;
+//                    console.log(this.a);
+                        this.color = "rgba(135, 206, 235," + this.a + ")";
+                    }
+                }
+            }
+        }
+    };
+
+
+    //下雨，画布背景
+    function Sky(sky) {
+         this.sky = sky;
+         this.skyCxt = sky.getContext("2d");
+    }
+
+    Sky.prototype = {
+        init: function () {
+            this.clientWidth = this.sky.width;
+            this.clientHeight =  this.sky.height;
+            //雨滴集合
+            this.drops = [];
+            return this;
+        },
+
+        drop: function () {
+            //定时刷新背景
+            setInterval(function () {
+                this.skyCxt.fillStyle = "rgba(0, 0, 0, 0.1)";
+                this.skyCxt.fillRect(0, 0, this.sky.width, this.sky.height);
+            }.bind(this), 1000/60);
+
+            //产生雨滴
+            setInterval(function () {
+                var drop = new Drop(sky);
+                drop.sport();
+//                this.drops.push(drop);
+//                console.dir(this.drops);
+            }.bind(this), 200);
+        }
+    };
+
+    //在给定区间（min, max）内产生随机数
+    function randomFrom(min, max) {
+        return Math.random() * (max - min) + min;
+    }
+
+    new Sky(sky).init().drop();
+
+
+
+
+
+
+</script>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas</title>
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <style>
+
+    </style>
+</head>
+<body>
+
+    <canvas id="myCanvas"></canvas>
+
+</body>
+<script>
+    var myCanvas = document.getElementById("myCanvas");
+    var cxt = myCanvas.getContext("2d");
+
+    cxt.fillStyle = "skyblue";
+    cxt.fillRect(0, 0, 100, 10);
+    cxt.fillStyle = "rgba(0, 0, 0, 0.3)";
+    cxt.fillRect(0, 0, myCanvas.width, myCanvas.height);
+
+    cxt.fillStyle = "skyblue";
+    cxt.fillRect(0, 20, 100, 10);
+    cxt.fillStyle = "rgba(0, 0, 0, 0.3)";
+    cxt.fillRect(0, 0, myCanvas.width, myCanvas.height);
+
+    cxt.fillStyle = "skyblue";
+    cxt.fillRect(0, 30, 100, 10);
+    cxt.fillStyle = "rgba(0, 0, 0, 0.3)";
+    cxt.fillRect(0, 0, myCanvas.width, myCanvas.height);
+
+    cxt.fillStyle = "skyblue";
+    cxt.fillRect(0, 40, 100, 10);
+    cxt.fillStyle = "rgba(0, 0, 0, 0.3)";
+    cxt.fillRect(0, 0, myCanvas.width, myCanvas.height);
+
+    cxt.fillStyle = "skyblue";
+    cxt.fillRect(0, 50, 100, 10);
+
+//    cxt.beginPath();
+    cxt.arc(50, 60, 50, 0, 360 * Math.PI / 180, false);
+//    cxt.close();
+    cxt.fill()
+
+</script>
+</html>
