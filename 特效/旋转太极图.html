@@ -12,6 +12,7 @@
         }
 
         .tai-chi {
+
             display: flex;
             align-items: center;
             width: 200px;
@@ -25,18 +26,19 @@
         .tai-chi::after, .tai-chi::before {
             content: "";
             display: block;
-            width: 10%;
-            height: 10%;
-            border-style: solid;
-            border-width: 40px;
+            width: 50%;
+            height: 50%;
+            /*border-style: solid;*/
+            /*border-width: 40px;*/
             border-radius: 50%;
         }
 
         .tai-chi::before {
-            background-color: black;
-            border-color: white;
+            background: radial-gradient(#000000 25%, #ffffff 25%);
+            /*background-color: black;*/
+            /*border-color: white;*/
             transform-origin: 0 50%;
-            animation: sport 1s 0s infinite alternate;
+            animation: sport 1.5s 0s linear infinite alternate;
         }
         @keyframes sport {
             from {
@@ -48,20 +50,21 @@
         }
 
         .tai-chi::after {
-            background-color: white;
-            border-color: black;
+            background: radial-gradient(#ffffff 25%, #000000 25%);
+            /*background-color: white;*/
+            /*border-color: black;*/
             transform-origin: 100% 50%;
-            animation: rev-sport 1s 0s infinite alternate;
+            animation: sport 1.5s -1.5s linear infinite alternate;
         }
 
-        @keyframes rev-sport {
-            from {
-                transform: scale(1.5);
-            }
-            to {
-                transform: scale(0.5);
-            }
-        }
+        /*@keyframes rev-sport {*/
+            /*from {*/
+                /*transform: scale(1.5);*/
+            /*}*/
+            /*to {*/
+                /*transform: scale(0.5);*/
+            /*}*/
+        /*}*/
     </style>
 </head>
 <body>
