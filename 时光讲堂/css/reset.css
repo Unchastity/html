@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+body,p,h1,h2,h3,h4,h5,h6,ul,ol,dl,li,dt,dd,form,input {
+    margin: 0;
+    padding: 0;
+}
+
+body,h1,h2,h3,h4,h5,h6 {
+    color: rgb(51, 51, 51);
+    font-size: 14px;
+    font-family: "微软雅黑";
+}
+
+a {
+    color: inherit;
+    font-size: inherit;
+    text-decoration: none;
+}
+
+ul,ol {
+    list-style: none;
+}
+
+img {
+    border: 0;
+    vertical-align: top;
+}
+
+input {
+    border: 0;
+    outline: none;
+}

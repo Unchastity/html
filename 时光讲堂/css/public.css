@@ -1,0 +1,127 @@
+@charset "UTF-8";
+
+/*浮动*/
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+.clearFloat::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/*定位*/
+.pos-rel {
+    position: relative;
+}
+.pos-abs {
+    position: absolute;
+}
+
+/*宽度*/
+.w1195 {
+    width: 1195px;
+}
+.w265 {
+    width: 265px;
+}
+.w45 {
+    width: 45px;
+}
+.w239 {
+    width: 239px;
+}
+.w100 {
+    width: 100px;
+}
+
+/*字体*/
+.f14 {
+    font-size: 14px;
+}
+.f16 {
+    font-size: 16px;
+}
+.f18 {
+    font-size: 18px;
+}
+.f20 {
+    font-size: 20px;
+}
+
+.wt400 {
+    font-weight: 400;
+}
+.wt500 {
+    font-weight: 500;
+}
+.wt600 {
+    font-weight: 600;
+}
+.wt700 {
+    font-weight: 700;
+}
+
+/*图标*/
+.icon-before {
+    position: relative;
+}
+.icon-before::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -10px;
+    width: 21px;
+    height: 21px;
+    background:url(../images/icon.png) no-repeat;
+}
+.icon-after {
+    position: relative;
+}
+.icon-after::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -10px;
+    width: 20px;
+    height: 20px;
+    background:url(../images/icon.png) no-repeat;
+}
+.icon-type {
+    position: relative;
+}
+.icon-type::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 65px;
+    height: 22px;
+    background-repeat: no-repeat;
+}
+
+/*背景*/
+.bgRed {
+    background-color: red;
+}
+.bgSky {
+    background-color: skyblue;
+}
+.bgBlue {
+    background-color: blue;
+}
+.bgPink {
+    background-color: pink;
+}
+.bgC {
+    background-color: chartreuse;
+}
+.bgPeru {
+    background-color: peru;
+}
+

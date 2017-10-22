@@ -1,0 +1,259 @@
+@charset "UTF-8";
+
+/*header S*/
+header {
+    height: 104px;
+}
+
+header .header-container {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+header .header-container .header-search {
+    margin-left: 120px;
+    width: 540px;
+}
+
+header .header-container .header-search .search-text {
+    display: flex;
+    align-items: center;
+    height: 44px;
+}
+header .header-container .header-search .search-text>a {
+    display: inline-block;
+    width: 98px;
+    line-height: 44px;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    background-color: #329ce1;
+}
+
+header .header-container .header-search .search-text .search-input {
+    width: 440px;
+    height: 40px;
+    border: solid 2px #329ce1;
+    border-right: none;
+}
+
+header .header-container .header-search .search-text .search-input a {
+    float: left;
+    width: 40px;
+    height: 100%;
+}
+header .header-container .header-search .search-text .search-input a::before {
+    width: 22px;
+    height: 21px;
+    left: 9px;
+}
+
+header .header-container .header-search .search-text .search-input input {
+    float: left;
+    width: 400px;
+    height: 100%;
+    font-size: 18px;
+}
+
+header .header-container .header-search>p {
+    padding-top: 7px;
+    color: red;
+}
+header .header-container .header-search>p a {
+    margin-right: 10px;
+}
+header .header-container .header-search>p a:hover {
+    text-decoration: underline;
+}
+
+header .header-container .header-login {
+    position: relative;
+    top: -10px;
+    margin: 0 0 0 auto;
+}
+header .header-container .header-login a:hover {
+    color: #329ce1;
+}
+header .header-container .header-login>a:first-child {
+    margin-right: 15px;
+}
+header .header-container .header-login>a:last-child {
+
+    padding-left: 15px;
+    line-height: 10px;
+    /*border-left: solid 1px black;*/
+}
+
+/*banner S*/
+.banner .banner-container {
+    height: 490px;
+    margin: 0 auto;
+}
+.banner .banner-container .banner-nav {
+    position: relative;
+    height: 50px;
+}
+.banner .banner-container .banner-nav .navigation {
+    position: absolute;
+    top: 0;
+    left: 225px;
+    padding-left: 35px;
+}
+.banner .banner-container .banner-nav .navigation ul li{
+    float: left;
+    line-height: 50px;
+    margin-right: 75px;
+    font-size: 18px;
+}
+.banner .banner-container .banner-nav .navigation ul li:hover {
+    color: #329ce1;
+}
+.banner .banner-container .banner-nav .nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 225px;
+    height: 50px;
+}
+.banner .banner-container .banner-nav .nav dl {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 225px;
+    z-index: 10;
+}
+.banner .banner-container .banner-nav .nav dl dt {
+    width: 100%;
+    box-sizing: border-box;
+    line-height: 50px;
+    padding-left: 40px;
+    background-color: #329ce1;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.banner .banner-container .banner-nav .nav dl dt.icon-before::before {
+    left: 15px;
+    margin-top: -7px;
+    background-position: -55px 0;
+}
+
+.banner .banner-container .banner-nav .nav dl dd {
+    width: 100%;
+    padding: 1px 0 1px 15px;
+    box-sizing: border-box;
+    cursor: pointer;
+    border-bottom: solid 1px #edeff1;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.banner .banner-container .banner-nav .nav dl dd:hover{
+    background-color: #329ce1;
+}
+.banner .banner-container .banner-nav .nav dl dd:hover>div>p>a {
+    color: white !important;
+}
+
+.banner .banner-container .banner-nav .nav dl dd p {
+    line-height: 30px;
+}
+
+.banner .banner-container .banner-nav .nav dl dd a:hover {
+    text-decoration: underline;
+}
+
+.banner .banner-container .banner-nav .nav dl dd p.icon-before {
+    padding-left: 30px;
+}
+
+.banner .banner-container .banner-nav .nav dl dd p:last-child a {
+    margin-right: 3px;
+    color: #6e6666;
+}
+
+
+.banner .banner-container .banner-nav .nav dl dd:nth-of-type(1) p.icon-before::before {
+    background-position: 0 -21px;
+}
+.banner .banner-container .banner-nav .nav dl dd:nth-of-type(2) p.icon-before::before {
+    background-position: -63px -21px;
+}
+.banner .banner-container .banner-nav .nav dl dd:nth-of-type(3) p.icon-before::before {
+    background-position: -21px -21px;
+}
+.banner .banner-container .banner-nav .nav dl dd:nth-of-type(4) p.icon-before::before {
+    background-position: -42px -21px;
+}
+.banner .banner-container .banner-nav .nav dl dd:nth-of-type(5) p.icon-before::before {
+    background-position: -105px -21px;
+}
+.banner .banner-container .banner-nav .nav dl dd:nth-of-type(6) p.icon-before::before {
+    background-position: -126px -21px;
+}
+.banner .banner-container .banner-nav .nav dl dd:nth-of-type(7) p.icon-before::before {
+    background-position: -84px -21px;
+}
+
+.banner .banner-container .banner-nav .nav dl dd:hover>.sub-nav {
+    display: block;
+}
+
+.banner .banner-container .banner-nav .nav dl dd .sub-nav {
+    display: none;
+    min-width: 570px;
+    min-height: 440px;
+    position: absolute;
+    left: 225px;
+    top: 50px;
+    border: solid 1px #329ce1;
+    padding: 0 65px;
+    cursor: pointer;
+    background-color: white;
+}
+
+.banner .banner-container .banner-nav .nav dl dd .sub-nav ul li {
+    padding: 10px 0;
+    border-bottom: dashed 1px #dde2eb;
+}
+.banner .banner-container .banner-nav .nav dl dd .sub-nav ul li:last-of-type {
+    border-bottom: none;
+}
+
+.banner .banner-container .banner-nav .nav dl dd .sub-nav ul li p {
+    line-height: 24px;
+    float: left;
+}
+
+.banner .banner-container .banner-nav .nav dl dd .sub-nav ul li p.sub-nav-title {
+    width: 115px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.banner .banner-container .banner-nav .nav dl dd .sub-nav .sub-nav-content {
+    width: 435px;
+    padding-left: 15px;
+    color: #666666;
+}
+
+.banner .banner-container .banner-nav .nav dl dd .sub-nav .sub-nav-content span {
+    color: #dcdcdc;
+}
+
+.banner .banner-container .banner-nav .nav dl dd .sub-nav .sub-nav-content a {
+    padding: 0 15px 0 10px;
+}
+
+.banner .banner-container .banner-nav .nav dl dd .sub-nav .vr a:hover,
+.banner .banner-container .banner-nav .nav dl dd .sub-nav .sub-nav-content a:hover {
+    color: red;
+}
+
+
+
+.banner .banner-container .banner-img {
+    height: 440px;
+}
