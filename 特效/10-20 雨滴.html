@@ -106,7 +106,7 @@
             //雨滴涟漪的透明度
             this.a = 1;
             //雨滴消失的速度
-            this.aV = 0.05;
+            this.aV = 0.96;
 
             this.timer = null;
         },
@@ -130,18 +130,15 @@
         },
         sport: function () {
             this.init();
-            this.timer = setInterval(function () {
+            setInterval(function () {
                 //若雨滴位置小于最大高度，则绘制雨滴，若大于则绘制涟漪
                 if (this.y < this.h) {
                     this.drawDrop();
                     this.update();
                 }else {
-                    if (this.a > 0) {
+                    if (this.a > 0.03) {
                         this.drawRipple();
                         this.update();
-                    }else {
-                        clearInterval(this.timer);
-                        this.timer = null;
                     }
                 }
 
@@ -151,13 +148,15 @@
             if (this.y < this.h) {
                 this.y += this.yV;
             }else {
-                this.r += this.rV;
-                if (this.r > this.maxR) {
-                    if (this.a > 0) {
-                        this.a -= this.aV;
-//                    console.log(this.a);
-                        this.color = "rgba(135, 206, 235," + this.a + ")";
+                if (this.a > 0.03) {
+
+                    this.r += this.rV;
+                    if (this.r > this.maxR) {
+                        this.a *= this.aV;
                     }
+                    this.color = "rgba(135, 206, 235," + this.a + ")";
+                }else {
+                    this.init();
                 }
             }
         }

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖拽相册</title>
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: black;
+        }
+        #wrapper {
+            width: 200px;
+            margin: 150px auto;
+            perspective: 800px;
+        }
+
+        #wrapper #image {
+            position: relative;
+            width: 200px;
+            /*border: solid red 1px;*/
+            /*transform: rotateX(-20deg) rotateY(0deg);*/
+            transform-style: preserve-3d;
+        }
+
+        #wrapper #image img {
+            position: absolute;
+            width: 200px;
+            transform: rotateY(0deg) translateZ(0px);
+            animation: all 1s;
+        }
+        /*
+        #wrapper .images img:nth-of-type(1) {
+            transform: rotateY(32deg) translateZ(200px);
+        }
+        #wrapper .images img:nth-of-type(2) {
+            transform: rotateY(64deg) translateZ(200px);
+        }
+        #wrapper .images img:nth-of-type(3) {
+            transform: rotateY(96deg) translateZ(200px);
+        }
+        #wrapper .images img:nth-of-type(4) {
+            transform: rotateY(128deg) translateZ(200px);
+        }
+        #wrapper .images img:nth-of-type(5) {
+            transform: rotateY(160deg) translateZ(200px);
+        }
+        #wrapper .images img:nth-of-type(6) {
+            transform: rotateY(192deg) translateZ(200px);
+        }
+        #wrapper .images img:nth-of-type(7) {
+            transform: rotateY(224deg) translateZ(200px);
+        }
+        #wrapper .images img:nth-of-type(8) {
+            transform: rotateY(256deg) translateZ(200px);
+        }
+        #wrapper .images img:nth-of-type(9) {
+            transform: rotateY(288deg) translateZ(200px);
+        }
+        #wrapper .images img:nth-of-type(10) {
+            transform: rotateY(320deg) translateZ(200px);
+        }
+        #wrapper .images img:nth-of-type(11) {
+            transform: rotateY(360deg) translateZ(200px);
+        }
+        */
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <div id="image">
+        <img src="photo/1.jpg" alt="" width="200px">
+        <img src="photo/2.jpg" alt="" width="200px">
+        <img src="photo/3.jpg" alt="" width="200px">
+        <img src="photo/4.jpg" alt="" width="200px">
+        <img src="photo/5.jpg" alt="" width="200px">
+        <img src="photo/6.jpg" alt="" width="200px">
+        <img src="photo/7.jpg" alt="" width="200px">
+        <img src="photo/8.jpg" alt="" width="200px">
+        <img src="photo/9.jpg" alt="" width="200px">
+        <img src="photo/10.jpg" alt="" width="200px">
+        <img src="photo/11.jpg" alt="" width="200px">
+    </div>
+</div>
+
+</body>
+<script>
+
+    var images = document.getElementsByTagName("img");
+    var imageBox = document.getElementById("image");
+    imageBox.style.transform = "rotateX(-20deg) rotateY(0deg)";
+
+    var rDeg = 360 / images.length;
+//    console.log(rDeg, images);
+
+    window.onload = function () {
+        Array.prototype.forEach.call(images, function (e, index, self) {
+//        console.log(rDeg * (self.length - index -1));
+            var img = self[self.length - index -1];
+            img.style.transform = "rotateY(" + rDeg * (self.length - index - 1) + "deg) translateZ(400px)";
+            img.style.transition = "transform 1.5s " + index * 0.3 + "s";
+
+//            img.onmousedown = function (ev) {
+//                ev.preventDefault();
+//            }
+        });
+    };
+
+//        var preX, preY;
+//        var crtX, crtY;
+        var rotateX = -20, rotateY = 0;
+        document.onmousedown = function (ev) {
+            console.log("down", ev);
+            var preX = ev.clientX;
+            var preY = ev.clientY;
+            //防止图片呗拖拽
+            ev.preventDefault();
+
+
+            this.onmousemove = function (ev) {
+//                console.log("move", ev);
+                var crtX = ev.clientX;
+                var crtY = ev.clientY;
+
+                rotateY += (crtX - preX) * 0.3;
+                rotateX -= (crtY - preY) * 0.3;
+//                console.log(preX, preY, crtX, crtY, rotateX, rotateY);
+                imageBox.style.transform = "rotateX(" + rotateX + "deg) rotateY(" + rotateY + "deg)";
+                imageBox.style.transition = "transform 0.5s";
+
+                preX = crtX;
+                preY = crtY;
+            };
+
+            this.onmouseup = function (ev) {
+//                console.log("up", ev);
+                this.onmousemove = null;
+
+
+
+            };
+
+        }
+
+</script>
+</html>
