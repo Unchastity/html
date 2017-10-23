@@ -16,6 +16,7 @@
         #wrapper {
             width: 200px;
             margin: 150px auto;
+            /*在哪个盒子内部有3D视角*/
             perspective: 800px;
         }
 
@@ -24,6 +25,7 @@
             width: 200px;
             /*border: solid red 1px;*/
             /*transform: rotateX(-20deg) rotateY(0deg);*/
+            /**/
             transform-style: preserve-3d;
         }
 
@@ -31,7 +33,7 @@
             position: absolute;
             width: 200px;
             transform: rotateY(0deg) translateZ(0px);
-            animation: all 1s;
+            /*animation: all 1s;*/
         }
         /*
         #wrapper .images img:nth-of-type(1) {
@@ -113,6 +115,7 @@
 //        var preX, preY;
 //        var crtX, crtY;
         var rotateX = -20, rotateY = 0;
+        var timer = null;
         document.onmousedown = function (ev) {
             console.log("down", ev);
             var preX = ev.clientX;
@@ -125,12 +128,12 @@
 //                console.log("move", ev);
                 var crtX = ev.clientX;
                 var crtY = ev.clientY;
-
-                rotateY += (crtX - preX) * 0.3;
-                rotateX -= (crtY - preY) * 0.3;
+                //等比例缩放水平方向和垂直方向鼠标移动的距离在对应方向上旋转的度数
+                rotateY += (crtX - preX) * 360/window.innerWidth;
+                rotateX -= (crtY - preY) * 360/window.innerHeight;
 //                console.log(preX, preY, crtX, crtY, rotateX, rotateY);
                 imageBox.style.transform = "rotateX(" + rotateX + "deg) rotateY(" + rotateY + "deg)";
-                imageBox.style.transition = "transform 0.5s";
+//                imageBox.style.transition = "transform 0.5s";
 
                 preX = crtX;
                 preY = crtY;
@@ -139,9 +142,18 @@
             this.onmouseup = function (ev) {
 //                console.log("up", ev);
                 this.onmousemove = null;
+                /*
+                timer = setInterval(function () {
 
-
-
+                    rotateX *= 0.9;
+                    rotateY *= 0.9;
+                    imageBox.style.transform = "rotateX(" + rotateX + "deg) rotateY(" + rotateY + "deg)";
+                    if (rotateY && rotateX) {
+                        clearInterval(timer);
+                        timer = null;
+                    }
+                }, 1000/600)
+                */
             };
 
         }
